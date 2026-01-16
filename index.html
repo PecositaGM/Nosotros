@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosotros</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #f5efe6;
+      color: #4a3f35;
+      text-align: center;
+    }
+
+    .entrada {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    button {
+      background: none;
+      border: 1px solid #4a3f35;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #4a3f35;
+    }
+
+    button:hover {
+      background: #4a3f35;
+      color: #f5efe6;
+    }
+
+    .contenido {
+      display: none;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    img {
+      width: 100%;
+      margin: 20px 0;
+      border-radius: 6px;
+    }
+
+    .texto {
+      margin: 40px 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+  .fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+  }
+
+  .fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <audio id="musica" preload="auto">
+    <source src="cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="entrada" id="entrada">
+    <p>Esto es para ti.<br><br>Entra despacio.</p>
+    <button onclick="entrar()">Entrar</button>
+  </div>
+
+  <div class="contenido" id="contenido">
+
+    <div class="texto">Contigo entendí la calma.</div>
+    <img src="foto1.jpg" calss="fade">
+
+    <div class="texto">Siempre te amaré.</div>
+    <img src="foto2.jpg" calss="fade">
+
+    <div class="texto">Te aquiero.</div>
+    <img src="foto3.jpg" calss="fade">
+
+    <div class="texto">Vives en mí.</div>
+    <img src="foto4.jpg" calss="fade">
+
+    <div class="texto">Estoy enamoradísima de ti.</div>
+    <img src="foto5.jpg" calss="fade">
+
+    <div class="texto">Más cálido que el sol.</div>
+    <img src="foto6.jpg" calss="fade">
+
+    <div class="texto">Eres magnífico.</div>
+    <img src="foto7.jpg" calss="fade">
+
+    <div class="texto">Amo que existas.</div>
+    <img src="foto8.jpg" calss="fade">
+
+    <div class="texto">Gracias por quedarte.</div>
+    <img src="foto9.jpg" calss="fade">
+
+    <div class="texto">Amor de todas mis vidas</div>
+    <img src="foto10.jpg" calss="fade">
+
+  </div>
+
+  <script>
+  function entrar() {
+    const audio = document.getElementById('musica');
+audio.volume = 1;
+audio.play().catch(err => console.log(err));
+    document.getElementById('entrada').style.display = 'none';
+    document.getElementById('contenido').style.display = 'block';
+
+    const elementos = document.querySelectorAll('.fade');
+    elementos.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, i * 400);
+    });
+  }
+</script>
+
+</body>
+</html>
